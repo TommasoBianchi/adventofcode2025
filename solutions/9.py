@@ -73,6 +73,16 @@ def solve_second(file):
 
         raise ValueError("IMPOSSIBLE")
 
+    def has_sides_fast(x1, y1, x2, y2):
+        x1, x2 = min(x1, x2), max(x1, x2)
+        y1, y2 = min(y1, y2), max(y1, y2)
+        for (rx1, ry1), (rx2, ry2) in zip(red_tiles, red_tiles[1:] + [red_tiles[0]]):
+            if rx1 == rx2 and x1 < rx1 and x2 > rx1 and not (max(ry1, ry2) < y1 or min(ry1, ry2) > y2):
+                return True
+            if ry1 == ry2 and y1 < ry1 and y2 > ry1 and not (max(rx1, rx2) < x1 or min(rx1, rx2) > x2):
+                return True
+        return False
+
     def has_sides(x1, y1, x2, y2):
         for x in range(min(x1, x2) + 1, max(x1, x2)):
             for ry in red_or_green_by_col[x]:
