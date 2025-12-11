@@ -81,7 +81,7 @@ def main():
         print("")
         print("Solve times:")
         for i, solve_time in enumerate(solve_times):
-            print(f"Day {i + 1}: {solve_time * 1000:8.0f} milliseconds")
+            print(f"Day {i + 1:2}: {solve_time * 1000:8.0f} milliseconds")
         print("-" * 30)
         print(f"Total: {sum(solve_times) * 1000:8.0f} milliseconds")
 
