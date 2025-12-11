@@ -72,7 +72,7 @@ def main():
     if day > 0:
         solve_day(day, input_override=other_args[0] if len(other_args) > 0 else None)
     else:
-        all_days = [int(filename.replace('.py', '')) for filename in os.listdir("solutions") if filename != "template.py"]
+        all_days = [int(filename.replace('.py', '')) for filename in os.listdir("solutions") if filename not in ["template.py", "__pycache__"]]
         solve_times = []
         for day in sorted(all_days):
             start = perf_counter()
